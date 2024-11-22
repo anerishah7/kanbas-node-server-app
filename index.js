@@ -6,6 +6,7 @@ import UserRoutes from "./Kanbas/Users/routes.js";
 import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
 import AssignmentRoutes from './Kanbas/Assignments/routes.js';
+import EnrollmentRoutes from './Kanbas/Enrollments/routes.js';
 import session from "express-session";
 import "dotenv/config";
 
@@ -27,13 +28,12 @@ if (process.env.NODE_ENV !== "development") {
     domain: process.env.NODE_SERVER_DOMAIN,
 };}
 app.use(session(sessionOptions));
-  
-app.use(session(sessionOptions));
 app.use(express.json());
 Lab5(app);
 AssignmentRoutes(app);
 ModuleRoutes(app);
 CourseRoutes(app);
+EnrollmentRoutes(app);
 UserRoutes(app);
 Hello(app);
 app.listen(process.env.PORT || 4000);
